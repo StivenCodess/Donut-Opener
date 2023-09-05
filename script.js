@@ -45,7 +45,7 @@ const IMAGES = [
 	{
 		path: "donuts_image/6.svg",
 		name: "Chispita",
-		weight: 1000,
+		weight: 50,
 	},
 	{
 		path: "donuts_image/7.svg",
