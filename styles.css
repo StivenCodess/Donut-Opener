@@ -188,6 +188,12 @@ body {
   }
 }
 
+@media screen and (min-height: 914px) {
+  .winner-container {
+    margin-bottom: 60px;
+  }
+}
+
 .donut-btn:hover {
   scale: 1.2;
 }
