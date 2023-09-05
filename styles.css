@@ -1,293 +1,321 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 body {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(35, 34, 34);
-  font-family: "Roboto", "sans-serif";
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgb(35, 34, 34);
+	font-family: "Roboto", "sans-serif";
 }
 
 #open-btn {
-  padding: 20px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+	padding: 20px;
+	margin-top: 30px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
 .roll-container {
-  width: 80%;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: transparent;
-  position: relative;
+	width: 80%;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: transparent;
+	position: relative;
 }
 
 .roll-wrapper {
-  display: flex;
-  left: 0;
-  transition: left 6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  position: absolute;
+	display: flex;
+	left: 0;
+	transition: left 6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+	position: absolute;
 }
 
 .backdrop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+@media screen and (max-width: 767px) {
+	.roll-container {
+		width: 100%;
+	}
 }
 
 .box-image {
-  width: 120px;
+	width: 120px;
 }
 
 .win {
-  width: 100px;
-  height: 100px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.734);
-  position: absolute;
-  z-index: -1;
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: rgba(255, 255, 255, 0.734);
+	position: absolute;
+	z-index: -1;
 }
 
-/* .box-blur-left {
-  position: absolute;
-  left: 50px;
-  width: 50%;
-  height: 150px;
-  z-index: 3;
-  backdrop-filter: blur(2px);
-  filter: blur(2px);
-} */
-
-/* .box-blur-right {
-  position: absolute;
-  right: 50px;
-  width: 50%;
-  height: 150px;
-  backdrop-filter: blur(1px);
-  filter: blur(1px);
-} */
+.box-blur-left {
+	position: absolute;
+	left: 0px;
+	width: 30%;
+	height: 150px;
+	border-radius: -50%;
+	backdrop-filter: blur(1px);
+	filter: blur(1px);
+	background: linear-gradient(90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+}
+.box-blur-right {
+	position: absolute;
+	right: 0px;
+	width: 30%;
+	height: 150px;
+	border-radius: -50%;
+	backdrop-filter: blur(1px);
+	filter: blur(1px);
+	background: linear-gradient(-90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+}
 
 .winner-container {
-  display: flex;
-  color: white;
-  font-weight: bolder;
-  font-size: 20px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 20px;
+	display: flex;
+	color: white;
+	font-weight: bolder;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 100px;
+}
+
+.winner-container span {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.winner-container img {
+	margin-top: -30px;
+}
+
+.win-name {
+	font-size: 25px;
+	margin-top: -20px;
+}
+.win-msg {
+	margin-top: -20px;
+	line-height: 30px;
+	font-size: 16px;
+	max-width: 200px;
 }
 
 .info-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40px;
-  margin: 30px;
-  cursor: pointer;
-  transition: scale 1s ease;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	margin: 30px;
+	cursor: pointer;
+	transition: scale 1s ease;
 }
 
 .info-btn:hover {
-  scale: 1.2;
+	scale: 1.2;
 }
 
 .modal-info {
-  width: 70%;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px 30px 30px;
-  position: absolute;
-  text-align: center;
-  font-weight: 700;
-  z-index: 2;
+	width: 70%;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px 30px 30px;
+	position: absolute;
+	text-align: center;
+	font-weight: 700;
+	z-index: 2;
 }
 
 .modal-info p {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .modal-info button {
-  cursor: pointer;
-  transition: background-color 0.9s ease-in-out;
-  padding: 5px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: none;
+	cursor: pointer;
+	transition: background-color 0.9s ease-in-out;
+	padding: 5px;
+	border-radius: 4px;
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
 }
 
 .modal-info button:hover {
-  background-color: #000;
+	background-color: #000;
 }
 
 .donut-btn {
-  position: absolute;
-  right: 65px;
-  margin: 30px;
-  top: 2px;
-  cursor: pointer;
-  transition: scale 1s ease;
+	position: absolute;
+	right: 65px;
+	margin: 30px;
+	top: 2px;
+	cursor: pointer;
+	transition: scale 1s ease;
 }
 
 .donut-btn:hover {
-  scale: 1.2;
+	scale: 1.2;
 }
 
 .blink-2 {
-  animation: blink-2 1s both;
+	animation: blink-2 1s both;
 }
 
 @keyframes blink-2 {
-  0% {
-    opacity: 1;
-    scale: 1;
-  }
-  50% {
-    opacity: 0.2;
-    scale: 1.4;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-  }
+	0% {
+		opacity: 1;
+		scale: 1;
+	}
+	50% {
+		opacity: 0.2;
+		scale: 1.4;
+	}
+	100% {
+		opacity: 1;
+		scale: 1;
+	}
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .scale-in-center {
-  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes scale-in-center {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+	0% {
+		transform: scale(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
 }
 
 .scale-out-center {
-  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+	animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 @keyframes scale-out-center {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0);
-    opacity: 1;
-  }
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 1;
+	}
 }
 
 .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s;
 }
 
 .modal-info-donut {
-  width: 70%;
-  height: 80%;
-  background-color: white;
-  border-radius: 10px;
-  padding: 0px 30px;
-  position: absolute;
-  text-align: center;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-top: 50px;
+	width: 70%;
+	height: 80%;
+	background-color: white;
+	border-radius: 10px;
+	padding: 0px 30px;
+	position: absolute;
+	text-align: center;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-top: 50px;
 }
 
 .modal-info-donut button {
-  text-align: center;
-  margin: 0 auto;
-  padding: 5px;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  transition: background-color 0.9s ease-in-out;
-  border-radius: 4px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	transition: background-color 0.9s ease-in-out;
+	border-radius: 4px;
+	font-size: 25px;
 }
 
 .modal-info-donut button:hover {
-  background-color: #000;
+	background-color: #000;
 }
 
 .img-container {
-  height: 85%;
-  overflow-y: scroll;
-  list-style: none;
-  padding: 0;
+	height: 85%;
+	overflow-y: scroll;
+	list-style: none;
+	padding: 0;
 }
 
 .donut-item h3 {
-  margin: 0;
-  text-transform: uppercase;
+	margin: 0;
+	text-transform: uppercase;
 }
 
 .donut-item span {
-  display: block;
-  margin: 5px auto;
-  padding: 5px 10px;
-  border-radius: 10px;
-  width: fit-content;
-  color: white;
+	display: block;
+	margin: 5px auto;
+	padding: 5px 10px;
+	border-radius: 10px;
+	width: fit-content;
+	color: white;
 }
 
 .img-container::-webkit-scrollbar {
-  width: 5px;
+	width: 5px;
 }
 
 .img-container::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 20px;
+	background-color: #888;
+	border-radius: 20px;
 }
 
 .img-container::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+	background-color: #555;
 }
 .modal-info-donut.hidden {
-  display: none;
+	display: none;
 }
 
 .epico {
-  background-color: #e4ae33;
+	background-color: #e4ae33;
 }
 .rara {
-  background-color: #eb4b4b;
+	background-color: #eb4b4b;
 }
 .infrecuente {
-  background-color: #8847ff;
+	background-color: #8847ff;
 }
 .poco-comun {
-  background-color: #d32ce6;
+	background-color: #d32ce6;
 }
 .comun {
-  background-color: #4b69ff;
+	background-color: #4b69ff;
 }

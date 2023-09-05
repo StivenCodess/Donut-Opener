@@ -1,103 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donut Case Opener</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <svg
-      id="info-btn"
-      class="bi bi-info-circle-fill info-btn"
-      fill="#fff"
-      height="50"
-      viewBox="0 0 16 16"
-      width="50"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
-      />
-    </svg>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Donut Case Opener</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<svg
+			id="info-btn"
+			class="bi bi-info-circle-fill info-btn"
+			fill="#fff"
+			height="50"
+			viewBox="0 0 16 16"
+			width="50"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+			/>
+		</svg>
 
-    <div class="overlay"></div>
-    <img src="donut.svg" alt="donut icon" width="45" class="donut-btn" />
+		<div class="overlay"></div>
+		<img src="donut.svg" alt="donut icon" width="45" class="donut-btn" />
 
-    <div class="modal-info hidden">
-      <p>
-        ¡Hola! Te explicaremos de qué trata esta web. 🌟 Si aprietas donde está
-        la 🍩 te mostrará la rareza de cada una de las opciones. Debes intentar
-        sacar la más rara para obtener un descuento del 10% en tu compra. 💰🎉
-      </p>
-      <button id="close-modal-info">❌</button>
-    </div>
+		<div class="modal-info hidden">
+			<p>
+				¡Hola! Te explicaremos de qué trata esta web. 🌟 Si aprietas donde está la 🍩 te
+				mostrará la rareza de cada una de las opciones. Debes intentar sacar la más rara
+				para obtener un descuento del 10% en tu compra. 💰🎉
+			</p>
+			<button id="close-modal-info">❌</button>
+		</div>
 
-    <div class="modal-info-donut hidden">
-      <ul class="img-container">
-        <li class="donut-item">
-          <img src="donuts_image/6.svg" alt="" width="200" />
-          <h3>Chispita</h3>
-          <span class="epico">Epica</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/7.svg" alt="" width="200" />
-          <h3>Chocolita</h3>
-          <span class="rara">Rara</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/3.svg" alt="" width="200" />
-          <h3>Rayitas</h3>
-          <span class="infrecuente">Infrecuente</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/9.svg" alt="" width="200" />
-          <h3>Remolinitos</h3>
-          <span class="infrecuente">Infrecuente</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/1.svg" alt="" width="200" />
-          <h3>Estrellitas</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/10.svg" alt="" width="200" />
-          <h3>Corazoncitos</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/5.svg" alt="" width="200" />
-          <h3>Glaceadita</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/2.svg" alt="" width="200" />
-          <h3>Tostadita</h3>
-          <span class="comun">Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/4.svg" alt="" width="200" />
-          <h3>Grajeitas Azul</h3>
-          <span class="comun">Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="donuts_image/8.svg" alt="" width="200" />
-          <h3>Celestita</h3>
-          <span class="comun">Comun</span>
-        </li>
-      </ul>
+		<div class="modal-info-donut hidden">
+			<ul class="img-container">
+				<li class="donut-item">
+					<img src="donuts_image/6.svg" alt="" width="200" />
+					<h3>Chispita</h3>
+					<span class="epico">Epica</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/7.svg" alt="" width="200" />
+					<h3>Chocolita</h3>
+					<span class="rara">Rara</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/3.svg" alt="" width="200" />
+					<h3>Rayitas</h3>
+					<span class="infrecuente">Infrecuente</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/9.svg" alt="" width="200" />
+					<h3>Remolinitos</h3>
+					<span class="infrecuente">Infrecuente</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/1.svg" alt="" width="200" />
+					<h3>Estrellitas</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/10.svg" alt="" width="200" />
+					<h3>Corazoncitos</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/5.svg" alt="" width="200" />
+					<h3>Glaceadita</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/2.svg" alt="" width="200" />
+					<h3>Tostadita</h3>
+					<span class="comun">Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/4.svg" alt="" width="200" />
+					<h3>Grajeitas Azul</h3>
+					<span class="comun">Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="donuts_image/8.svg" alt="" width="200" />
+					<h3>Celestita</h3>
+					<span class="comun">Comun</span>
+				</li>
+			</ul>
 
-      <button id="close-modal-info-donut">❌</button>
-    </div>
+			<button id="close-modal-info-donut">❌</button>
+		</div>
 
-    <img class="box-image" src="paquete.png" alt="box" />
-    <div class="backdrop">
-      <div class="roll-container" style="display: none">
-        <div class="roll-wrapper"></div>
-      </div>
-    </div>
+		<img class="box-image" src="paquete.png" alt="box" />
+		<div class="backdrop">
+			<div class="roll-container" style="display: none">
+				<div class="roll-wrapper"></div>
+			</div>
+		</div>
 
-    <button id="open-btn">Open</button>
-    <script src="script.js"></script>
-  </body>
+		<button id="open-btn">Open</button>
+		<script src="script.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+	</body>
 </html>
