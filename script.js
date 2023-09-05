@@ -204,6 +204,8 @@ open_btn.addEventListener("click", () => {
 
     winnerElement.classList.add("blink-2");
 
+    resetElement();
+
     /** PASAR A FUNCION */
     if (winnerElement.getAttribute("src") == "donuts_image/6.svg") {
       confetti({
