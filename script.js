@@ -212,7 +212,7 @@ open_btn.addEventListener("click", () => {
 				decay: 0.94,
 				origin: { y: 0.25 },
 				startVelocity: 10,
-				particleCount: 100,
+				particleCount: 50,
 				scalar: 3,
 				shapes: ["image"],
 				shapeOptions: {
