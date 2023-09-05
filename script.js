@@ -45,7 +45,7 @@ const IMAGES = [
   {
     path: "donuts_image/6.svg",
     name: "Chispita",
-    weight: 1000,
+    weight: 60,
   },
   {
     path: "donuts_image/7.svg",
@@ -203,8 +203,6 @@ open_btn.addEventListener("click", () => {
     roll_container.appendChild(divBG);
 
     winnerElement.classList.add("blink-2");
-
-    resetElement();
 
     /** PASAR A FUNCION */
     if (winnerElement.getAttribute("src") == "donuts_image/6.svg") {
