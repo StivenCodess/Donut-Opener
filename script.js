@@ -69,6 +69,26 @@ const IMAGES = [
 	},
 ];
 
+document.addEventListener("click", (event) => {
+	const target = event.target;
+
+	if (target instanceof HTMLElement || target.nodeName === "path") {
+		const action = target.getAttribute("data-action");
+
+		if (action === "open") {
+			open_btnClickHandler();
+		} else if (action === "show-info") {
+			showInfoClickHandler(modal_info);
+		} else if (action === "show-donuts") {
+			showInfoClickHandler(modal_donuts);
+		} else if (action === "close-info") {
+			closeInfoClickHandler(modal_info);
+		} else if (action === "close-donuts") {
+			closeInfoClickHandler(modal_donuts);
+		}
+	}
+});
+
 const getRandomImage = () => {
 	const totalWeight = IMAGES.reduce((sum, image) => sum + image.weight, 0);
 	const randomNumber = Math.random() * totalWeight;
@@ -188,7 +208,11 @@ const showWinnerDonut = () => {
 	open_btn.disabled = false;
 };
 
-open_btn.addEventListener("click", () => {
+window.addEventListener("resize", () => {
+	updatePosition();
+});
+
+const open_btnClickHandler = () => {
 	open_btn.disabled = true;
 	imageBox.style.display = "none";
 	roll_container.style.display = "flex";
@@ -244,46 +268,23 @@ open_btn.addEventListener("click", () => {
 		}
 		showWinnerDonut();
 	}, 6000);
-});
+};
 
-window.addEventListener("resize", () => {
-	updatePosition();
-});
-
-info_btn.addEventListener("click", () => {
+const showInfoClickHandler = (element) => {
 	overlay.style.visibility = "visible";
 	overlay.style.opacity = "1";
-	modal_info.classList.remove("hidden");
-	modal_info.classList.remove("scale-out-center");
-	modal_info.classList.add("scale-in-center");
-});
+	element.classList.remove("hidden");
+	element.classList.remove("scale-out-center");
+	element.classList.add("scale-in-center");
+};
 
-close_modal.addEventListener("click", () => {
-	modal_info.classList.add("scale-out-center");
+const closeInfoClickHandler = (element) => {
+	element.classList.add("scale-out-center");
 
 	setTimeout(() => {
 		overlay.style.opacity = "0";
 		overlay.style.visibility = "hidden";
-		modal_info.classList.add("hidden");
-		modal_info.classList.remove("scale-in-center");
+		element.classList.add("hidden");
+		element.classList.remove("scale-in-center");
 	}, 600);
-});
-
-donut_btn.addEventListener("click", () => {
-	overlay.style.visibility = "visible";
-	overlay.style.opacity = "1";
-	modal_donuts.classList.remove("hidden");
-	modal_donuts.classList.remove("scale-out-center");
-	modal_donuts.classList.add("scale-in-center");
-});
-
-close_modal_donut.addEventListener("click", () => {
-	modal_donuts.classList.add("scale-out-center");
-
-	setTimeout(() => {
-		overlay.style.opacity = "0";
-		overlay.style.visibility = "hidden";
-		modal_donuts.classList.add("hidden");
-		modal_donuts.classList.remove("scale-in-center");
-	}, 600);
-});
+};
