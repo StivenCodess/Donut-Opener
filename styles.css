@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
+:root[data-theme="dark"] {
+	--bg-color: rgb(35, 34, 34);
+	--text-color: white;
+	--box-blur-r: linear-gradient(-90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+	--box-blur-l: linear-gradient(90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+	--win-box-color: rgba(255, 255, 255, 0.734);
+	--info-color: white;
+}
+
+:root[data-theme="light"] {
+	--bg-color: rgba(255, 255, 255, 0.701);
+	--text-color: black;
+	--box-blur-r: linear-gradient(-90deg, rgb(255, 255, 255) 50%, rgba(35, 35, 34, 0) 77%);
+	--box-blur-l: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgba(35, 35, 34, 0) 77%);
+	--win-box-color: rgb(255, 200, 221);
+	--info-color: black;
+}
+
 body {
 	height: 100vh;
 	overflow: hidden;
@@ -7,8 +25,11 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-color: rgb(35, 34, 34);
+	background-color: var(--bg-color);
 	font-family: "Roboto", "sans-serif";
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 #open-btn {
@@ -59,7 +80,7 @@ body {
 	height: 100px;
 	padding: 20px;
 	border-radius: 20px;
-	background-color: rgba(255, 255, 255, 0.734);
+	background-color: var(--win-box-color);
 	position: absolute;
 	z-index: -1;
 }
@@ -72,7 +93,7 @@ body {
 	border-radius: -50%;
 	backdrop-filter: blur(1px);
 	filter: blur(1px);
-	background: linear-gradient(90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+	background: var(--box-blur-l);
 }
 .box-blur-right {
 	position: absolute;
@@ -82,12 +103,12 @@ body {
 	border-radius: -50%;
 	backdrop-filter: blur(1px);
 	filter: blur(1px);
-	background: linear-gradient(-90deg, rgb(35, 35, 34) 10%, rgba(35, 35, 34, 0) 77%);
+	background: var(--box-blur-r);
 }
 
 .winner-container {
 	display: flex;
-	color: white;
+	color: var(--text-color);
 	font-weight: bolder;
 	justify-content: center;
 	align-items: center;
@@ -124,6 +145,7 @@ body {
 	cursor: pointer;
 	user-select: none;
 	transition: scale 1s ease;
+	fill: var(--info-color);
 }
 
 .info-btn:hover {
@@ -131,7 +153,7 @@ body {
 }
 
 .modal-info {
-	width: 70%;
+	max-width: 30%;
 	background-color: white;
 	border-radius: 10px;
 	padding: 10px 30px 30px;
@@ -197,10 +219,6 @@ body {
 		opacity: 1;
 		scale: 1;
 	}
-}
-
-.hidden {
-	display: none;
 }
 
 .scale-in-center {
@@ -297,6 +315,10 @@ body {
 		cursor: auto;
 	}
 
+	.modal-info {
+		max-width: 70%;
+	}
+
 	.modal-info button {
 		cursor: auto;
 	}
@@ -360,4 +382,28 @@ body {
 }
 .comun {
 	background-color: #4b69ff;
+}
+
+.theme-container {
+	margin: 30px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+}
+
+#sun {
+	background-color: white;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+#moon {
+}
+
+.hidden {
+	display: none;
 }
