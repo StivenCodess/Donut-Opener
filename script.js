@@ -1,14 +1,17 @@
 const open_btn = document.getElementById("open-btn");
-const roll_container = document.querySelector(".roll-container");
-const roll_wrapper = document.querySelector(".roll-wrapper");
-const imageBox = document.querySelector(".box-image");
-const close_modal = document.getElementById("close-modal-info");
 const info_btn = document.getElementById("info-btn");
-const modal_info = document.querySelector(".modal-info");
-const overlay = document.querySelector(".overlay");
-const donut_btn = document.querySelector(".donut-btn");
-const modal_donuts = document.querySelector(".modal-info-donut");
+const donut_btn = document.getElementById("donut-btn");
+const close_modal = document.getElementById("close-modal-info");
 const close_modal_donut = document.getElementById("close-modal-info-donut");
+
+const modal_info = document.getElementById("modal-info");
+const modal_donuts = document.getElementById("modal-info-donut");
+
+const roll_container = document.getElementById("roll-container");
+const roll_wrapper = document.getElementById("roll-wrapper");
+
+const imageBox = document.querySelector(".box-image");
+const overlay = document.querySelector(".overlay");
 const backdrop_container = document.querySelector(".backdrop");
 
 // CONSTANTS SIZE OF ELEMENTS
@@ -231,36 +234,36 @@ const open_btnClickHandler = () => {
 		/** PASAR A FUNCION */
 		if (winnerElement.getAttribute("src") == "donuts_image/6.svg") {
 			confetti({
-				spread: 10,
-				ticks: 50,
+				spread: 360,
+				ticks: 200,
 				gravity: 1,
 				decay: 0.94,
 				origin: { y: 0.25 },
-				startVelocity: 5,
+				startVelocity: 10,
 				particleCount: 15,
-				scalar: 3,
+				scalar: 1,
 				shapes: ["image"],
 				shapeOptions: {
 					image: [
 						{
-							src: "./donuts_image/2.svg",
-							width: 10,
-							height: 10,
+							src: "./donut-particles/10.webp",
+							width: 50,
+							height: 50,
 						},
 						{
-							src: "./donuts_image/4.svg",
-							width: 10,
-							height: 10,
+							src: "./donut-particles/9.webp",
+							width: 50,
+							height: 50,
 						},
 						{
-							src: "./donuts_image/8.svg",
-							width: 10,
-							height: 10,
+							src: "./donut-particles/6.webp",
+							width: 50,
+							height: 50,
 						},
 						{
-							src: "./donuts_image/10.svg",
-							width: 10,
-							height: 10,
+							src: "./donut-particles/2.webp",
+							width: 50,
+							height: 50,
 						},
 					],
 				},
