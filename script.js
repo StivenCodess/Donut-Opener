@@ -4,6 +4,9 @@ const donut_btn = document.getElementById("donut-btn");
 const close_modal = document.getElementById("close-modal-info");
 const close_modal_donut = document.getElementById("close-modal-info-donut");
 
+const sun_btn = document.getElementById("sun");
+const moon_btn = document.getElementById("moon");
+
 const modal_info = document.getElementById("modal-info");
 const modal_donuts = document.getElementById("modal-info-donut");
 
@@ -88,6 +91,8 @@ document.addEventListener("click", (event) => {
 			closeInfoClickHandler(modal_info);
 		} else if (action === "close-donuts") {
 			closeInfoClickHandler(modal_donuts);
+		} else if (action === "changeTheme") {
+			changeTheme();
 		}
 	}
 });
@@ -272,6 +277,19 @@ const showBoxBlur = () => {
 
 	backdrop_container.appendChild(divBlurLeft);
 	backdrop_container.appendChild(divBlurRight);
+};
+
+const changeTheme = () => {
+	const root = document.documentElement;
+	if (root.getAttribute("data-theme") === "light") {
+		sun_btn.classList.remove("hidden");
+		moon_btn.classList.add("hidden");
+		root.setAttribute("data-theme", "dark");
+	} else {
+		sun_btn.classList.add("hidden");
+		moon_btn.classList.remove("hidden");
+		root.setAttribute("data-theme", "light");
+	}
 };
 
 const showInfoClickHandler = (element) => {

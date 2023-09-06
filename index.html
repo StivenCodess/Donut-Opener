@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +7,29 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
+		<figure class="theme-container">
+			<img
+				id="sun"
+				src="sol.gif"
+				alt="sun gif"
+				data-action="changeTheme"
+				class="hidden"
+			/>
+			<img
+				id="moon"
+				src="luna.gif"
+				alt="moon gif"
+				width="40px"
+				height="40px"
+				data-action="changeTheme"
+			/>
+		</figure>
+
 		<svg
 			id="info-btn"
 			class="bi bi-info-circle-fill info-btn"
 			data-action="show-info"
-			fill="#fff"
+			fill="currentcolor"
 			height="50"
 			viewBox="0 0 16 16"
 			width="50"
