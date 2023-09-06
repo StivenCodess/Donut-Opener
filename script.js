@@ -48,7 +48,7 @@ const IMAGES = [
 	{
 		path: "donuts_image/6.svg",
 		name: "Chispita",
-		weight: 1000,
+		weight: 50,
 	},
 	{
 		path: "donuts_image/7.svg",
@@ -143,16 +143,7 @@ const updatePosition = () => {
 
 const setElements = () => {
 	resetElement();
-
-	//PASAR A FUNCION
-	const divBlurLeft = document.createElement("div");
-	divBlurLeft.classList.add("box-blur-left");
-
-	const divBlurRight = document.createElement("div");
-	divBlurRight.classList.add("box-blur-right");
-
-	backdrop_container.appendChild(divBlurLeft);
-	backdrop_container.appendChild(divBlurRight);
+	showBoxBlur();
 
 	for (let index = 0; index <= 49; index++) {
 		const img = document.createElement("img");
@@ -175,42 +166,6 @@ const setElements = () => {
 	WIN_IMG = roll_wrapper.children.length / 2;
 };
 
-const showWinnerDonut = () => {
-	if (document.querySelector(".winner-container")) return;
-
-	const winnerElement = roll_wrapper.children.item(WIN_IMG);
-
-	const winnerPath = winnerElement.getAttribute("src");
-	const winnerName = winnerElement.getAttribute("alt");
-
-	const winnerContainer = document.createElement("div");
-	winnerContainer.className = "winner-container";
-	winnerContainer.classList.add("scale-in-center");
-
-	const image = document.createElement("img");
-	image.src = winnerPath;
-	image.width = 200;
-	image.className = "winnerImg";
-
-	const spanMSG = document.createElement("span");
-	spanMSG.className = "win-name";
-	spanMSG.textContent = `${winnerName}`;
-
-	const message = document.createElement("span");
-	message.className = "win-msg";
-
-	if (winnerName != "Chispita") message.textContent = "Suerte para la proxima!";
-	else message.textContent = "Felicidades obtuviste un descuento del 10%";
-
-	winnerContainer.appendChild(spanMSG);
-	winnerContainer.appendChild(image);
-	winnerContainer.appendChild(message);
-
-	document.body.insertAdjacentElement("afterbegin", winnerContainer);
-
-	open_btn.disabled = false;
-};
-
 window.addEventListener("resize", () => {
 	updatePosition();
 });
@@ -231,7 +186,6 @@ const open_btnClickHandler = () => {
 
 		winnerElement.classList.add("blink-2");
 
-		/** PASAR A FUNCION */
 		if (winnerElement.getAttribute("src") == "donuts_image/6.svg") {
 			confetti({
 				spread: 360,
@@ -270,7 +224,54 @@ const open_btnClickHandler = () => {
 			});
 		}
 		showWinnerDonut();
-	}, 6000);
+	}, 5500);
+};
+
+const showWinnerDonut = () => {
+	if (document.querySelector(".winner-container")) return;
+
+	const winnerElement = roll_wrapper.children.item(WIN_IMG);
+
+	const winnerPath = winnerElement.getAttribute("src");
+	const winnerName = winnerElement.getAttribute("alt");
+
+	const winnerContainer = document.createElement("div");
+	winnerContainer.className = "winner-container";
+	winnerContainer.classList.add("scale-in-center");
+
+	const image = document.createElement("img");
+	image.src = winnerPath;
+	image.width = 200;
+	image.className = "winnerImg";
+
+	const spanMSG = document.createElement("span");
+	spanMSG.className = "win-name";
+	spanMSG.textContent = `${winnerName}`;
+
+	const message = document.createElement("span");
+	message.className = "win-msg";
+
+	if (winnerName != "Chispita") message.textContent = "Suerte para la proxima!";
+	else message.textContent = "Felicidades obtuviste un descuento del 10%";
+
+	winnerContainer.appendChild(spanMSG);
+	winnerContainer.appendChild(image);
+	winnerContainer.appendChild(message);
+
+	document.body.insertAdjacentElement("afterbegin", winnerContainer);
+
+	open_btn.disabled = false;
+};
+
+const showBoxBlur = () => {
+	const divBlurLeft = document.createElement("div");
+	divBlurLeft.classList.add("box-blur-left");
+
+	const divBlurRight = document.createElement("div");
+	divBlurRight.classList.add("box-blur-right");
+
+	backdrop_container.appendChild(divBlurLeft);
+	backdrop_container.appendChild(divBlurRight);
 };
 
 const showInfoClickHandler = (element) => {
