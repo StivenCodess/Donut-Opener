@@ -24,7 +24,7 @@ let WIN_IMG = undefined;
 
 const loadImagesFromServer = async () => {
 	try {
-		const response = await fetch("https://donut-backend.vercel.app/api/images");
+		const response = await fetch("https://donut-opener.vercel.app/api/images");
 
 		if (!response.ok) throw new Error("Error al obtener imágenes");
 		return await response.json();
