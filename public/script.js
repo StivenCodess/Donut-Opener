@@ -22,6 +22,23 @@ const WIDTH_ELEMENT = 150;
 const GAP_ELEMENT = 10;
 let WIN_IMG = undefined;
 
+const LIGHT_THEME = "light";
+const DARK_THEME = "dark";
+
+document.addEventListener("DOMContentLoaded", () => {
+	initializeTheme();
+	updateThemeButtons();
+});
+
+const initializeTheme = () => {
+	const theme =
+		localStorage.getItem("theme") ||
+		(window.matchMedia("(prefers-color-scheme: dark)").matches
+			? DARK_THEME
+			: LIGHT_THEME);
+	updateTheme(theme);
+};
+
 const loadImagesFromServer = async () => {
 	try {
 		const response = await fetch("https://donut-opener.vercel.app/api/images");
@@ -58,7 +75,7 @@ document.addEventListener("click", (event) => {
 		} else if (action === "close-donuts") {
 			closeInfoClickHandler(modal_donuts);
 		} else if (action === "changeTheme") {
-			changeTheme();
+			toggleTheme();
 		}
 	}
 });
@@ -245,17 +262,23 @@ const showBoxBlur = () => {
 	backdrop_container.appendChild(divBlurRight);
 };
 
-const changeTheme = () => {
+const updateTheme = (theme) => {
 	const root = document.documentElement;
-	if (root.getAttribute("data-theme") === "light") {
-		sun_btn.classList.remove("hidden");
-		moon_btn.classList.add("hidden");
-		root.setAttribute("data-theme", "dark");
-	} else {
-		sun_btn.classList.add("hidden");
-		moon_btn.classList.remove("hidden");
-		root.setAttribute("data-theme", "light");
-	}
+	root.setAttribute("data-theme", theme);
+	localStorage.setItem("theme", theme);
+};
+
+const toggleTheme = () => {
+	const currentTheme = document.documentElement.getAttribute("data-theme") || LIGHT_THEME;
+	const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
+	updateTheme(newTheme);
+	updateThemeButtons();
+};
+
+const updateThemeButtons = () => {
+	const isDarkTheme = document.documentElement.getAttribute("data-theme") === DARK_THEME;
+	sun_btn.classList.toggle("hidden", !isDarkTheme);
+	moon_btn.classList.toggle("hidden", isDarkTheme);
 };
 
 const showInfoClickHandler = (element) => {
