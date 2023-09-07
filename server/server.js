@@ -1,5 +1,5 @@
 import express from "express";
-import { IMAGES } from "./data.js";
+const IMAGES = JSON.parse(process.env.IMAGES);
 
 const app = express();
 const port = process.env.PORT || 3000;
