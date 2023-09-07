@@ -11,3 +11,7 @@ Thumbs.db
 
 # Archivo de registro (si se utiliza)
 npm-debug.log
+
+# Ignorar el archivo data.js
+data.js
+.vercel

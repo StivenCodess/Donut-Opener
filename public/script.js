@@ -22,58 +22,24 @@ const WIDTH_ELEMENT = 150;
 const GAP_ELEMENT = 10;
 let WIN_IMG = undefined;
 
-const IMAGES = [
-	{
-		path: "./assets/donuts_image/1.svg",
-		name: "Estrellitas",
-		weight: 8,
-	},
-	{
-		path: "./assets/donuts_image/2.svg",
-		name: "Tostadita",
-		weight: 10,
-	},
-	{
-		path: "./assets/donuts_image/3.svg",
-		name: "Rayitas",
-		weight: 5,
-	},
-	{
-		path: "./assets/donuts_image/4.svg",
-		name: "Grajeita Azul",
-		weight: 10,
-	},
-	{
-		path: "./assets/donuts_image/5.svg",
-		name: "Glaceadita",
-		weight: 8,
-	},
-	{
-		path: "./assets/donuts_image/6.svg",
-		name: "Chispita",
-		weight: 50,
-	},
-	{
-		path: "./assets/donuts_image/7.svg",
-		name: "Chocolita",
-		weight: 2,
-	},
-	{
-		path: "./assets/donuts_image/8.svg",
-		name: "Celestita",
-		weight: 10,
-	},
-	{
-		path: "./assets/donuts_image/9.svg",
-		name: "Remolinitos",
-		weight: 5,
-	},
-	{
-		path: "./assets/donuts_image/10.svg",
-		name: "Corazoncitos",
-		weight: 8,
-	},
-];
+const loadImagesFromServer = async () => {
+	try {
+		const response = await fetch("https://donut-backend.vercel.app/api/images");
+
+		if (!response.ok) throw new Error("Error al obtener imágenes");
+		return await response.json();
+	} catch (error) {
+		console.error("Error al obtener imágenes:", error);
+		throw error;
+	}
+};
+
+const setElements = async () => {
+	try {
+		const imagesData = await loadImagesFromServer();
+		loadImagesIntoRoll(imagesData);
+	} catch (error) {}
+};
 
 document.addEventListener("click", (event) => {
 	const target = event.target;
@@ -97,7 +63,7 @@ document.addEventListener("click", (event) => {
 	}
 });
 
-const getRandomImage = () => {
+const getRandomImage = (IMAGES) => {
 	const totalWeight = IMAGES.reduce((sum, image) => sum + image.weight, 0);
 	const randomNumber = Math.random() * totalWeight;
 
@@ -146,13 +112,13 @@ const updatePosition = () => {
 	roll_wrapper.style.left = `${finalLeftPosition}px`;
 };
 
-const setElements = () => {
+const loadImagesIntoRoll = (imagesData) => {
 	resetElement();
 	showBoxBlur();
 
 	for (let index = 0; index <= 49; index++) {
 		const img = document.createElement("img");
-		const imgPath = getRandomImage();
+		const imgPath = getRandomImage(imagesData);
 
 		img.src = imgPath.path;
 		img.alt = imgPath.name;
