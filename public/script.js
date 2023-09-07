@@ -24,52 +24,52 @@ let WIN_IMG = undefined;
 
 const IMAGES = [
 	{
-		path: "/assets/donuts_image/1.svg",
+		path: "../assets/donuts_image/1.svg",
 		name: "Estrellitas",
 		weight: 8,
 	},
 	{
-		path: "/assets/donuts_image/2.svg",
+		path: "../assets/donuts_image/2.svg",
 		name: "Tostadita",
 		weight: 10,
 	},
 	{
-		path: "/assets/donuts_image/3.svg",
+		path: "../assets/donuts_image/3.svg",
 		name: "Rayitas",
 		weight: 5,
 	},
 	{
-		path: "/assets/donuts_image/4.svg",
+		path: "../assets/donuts_image/4.svg",
 		name: "Grajeita Azul",
 		weight: 10,
 	},
 	{
-		path: "/assets/donuts_image/5.svg",
+		path: "../assets/donuts_image/5.svg",
 		name: "Glaceadita",
 		weight: 8,
 	},
 	{
-		path: "/assets/donuts_image/6.svg",
+		path: "../assets/donuts_image/6.svg",
 		name: "Chispita",
 		weight: 50,
 	},
 	{
-		path: "/assets/donuts_image/7.svg",
+		path: "../assets/donuts_image/7.svg",
 		name: "Chocolita",
 		weight: 2,
 	},
 	{
-		path: "/assets/donuts_image/8.svg",
+		path: "../assets/donuts_image/8.svg",
 		name: "Celestita",
 		weight: 10,
 	},
 	{
-		path: "/assets/donuts_image/9.svg",
+		path: "../assets/donuts_image/9.svg",
 		name: "Remolinitos",
 		weight: 5,
 	},
 	{
-		path: "/assets/donuts_image/10.svg",
+		path: "../assets/donuts_image/10.svg",
 		name: "Corazoncitos",
 		weight: 8,
 	},
