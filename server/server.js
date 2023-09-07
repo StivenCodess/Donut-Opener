@@ -10,10 +10,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get("/", (req, res) => {
-	res.send("Bienvenido a la api de Donut Opener");
-});
-
 app.get("/api/images", (req, res) => {
 	res.json(IMAGES);
 });
