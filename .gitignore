@@ -1,0 +1,13 @@
+# Dependencias de Node.js
+/node_modules
+
+# Archivos de configuración
+.env
+
+# Archivos de respaldo y caché
+.DS_Store
+Thumbs.db
+.cache
+
+# Archivo de registro (si se utiliza)
+npm-debug.log
