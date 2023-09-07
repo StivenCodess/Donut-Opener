@@ -1,4 +1,7 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
+
 const IMAGES = JSON.parse(process.env.IMAGES);
 
 const app = express();
