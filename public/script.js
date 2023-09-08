@@ -1,11 +1,8 @@
-const open_btn = document.getElementById("open-btn");
-const info_btn = document.getElementById("info-btn");
-const donut_btn = document.getElementById("donut-btn");
-const close_modal = document.getElementById("close-modal-info");
-const close_modal_donut = document.getElementById("close-modal-info-donut");
+import { initializeTheme, updateThemeButtons, toggleTheme } from "./theme.js";
+import { showInfoClickHandler, closeInfoClickHandler } from "./modal.js";
+import { showBoxBlur } from "./utils.js";
 
-const sun_btn = document.getElementById("sun");
-const moon_btn = document.getElementById("moon");
+const open_btn = document.getElementById("open-btn");
 
 const modal_info = document.getElementById("modal-info");
 const modal_donuts = document.getElementById("modal-info-donut");
@@ -14,30 +11,15 @@ const roll_container = document.getElementById("roll-container");
 const roll_wrapper = document.getElementById("roll-wrapper");
 
 const imageBox = document.querySelector(".box-image");
-const overlay = document.querySelector(".overlay");
-const backdrop_container = document.querySelector(".backdrop");
 
 // CONSTANTS SIZE OF ELEMENTS
 const WIDTH_ELEMENT = 150;
-const GAP_ELEMENT = 10;
 let WIN_IMG = undefined;
-
-const LIGHT_THEME = "light";
-const DARK_THEME = "dark";
 
 document.addEventListener("DOMContentLoaded", () => {
 	initializeTheme();
 	updateThemeButtons();
 });
-
-const initializeTheme = () => {
-	const theme =
-		localStorage.getItem("theme") ||
-		(window.matchMedia("(prefers-color-scheme: dark)").matches
-			? DARK_THEME
-			: LIGHT_THEME);
-	updateTheme(theme);
-};
 
 const loadImagesFromServer = async () => {
 	try {
@@ -174,7 +156,7 @@ const open_btnClickHandler = () => {
 
 		winnerElement.classList.add("blink-2");
 
-		if (winnerElement.getAttribute("src") == "donuts_image/6.svg") {
+		if (winnerElement.getAttribute("src") == "./assets/donuts_image/6.svg") {
 			confetti({
 				spread: 360,
 				ticks: 200,
@@ -188,22 +170,22 @@ const open_btnClickHandler = () => {
 				shapeOptions: {
 					image: [
 						{
-							src: "./donut-particles/10.webp",
+							src: "./assets/donut-particles/10.webp",
 							width: 50,
 							height: 50,
 						},
 						{
-							src: "./donut-particles/9.webp",
+							src: "./assets/donut-particles/9.webp",
 							width: 50,
 							height: 50,
 						},
 						{
-							src: "./donut-particles/6.webp",
+							src: "./assets/donut-particles/6.webp",
 							width: 50,
 							height: 50,
 						},
 						{
-							src: "./donut-particles/2.webp",
+							src: "./assets/donut-particles/2.webp",
 							width: 50,
 							height: 50,
 						},
@@ -249,53 +231,4 @@ const showWinnerDonut = () => {
 	document.body.insertAdjacentElement("afterbegin", winnerContainer);
 
 	open_btn.disabled = false;
-};
-
-const showBoxBlur = () => {
-	const divBlurLeft = document.createElement("div");
-	divBlurLeft.classList.add("box-blur-left");
-
-	const divBlurRight = document.createElement("div");
-	divBlurRight.classList.add("box-blur-right");
-
-	backdrop_container.appendChild(divBlurLeft);
-	backdrop_container.appendChild(divBlurRight);
-};
-
-const updateTheme = (theme) => {
-	const root = document.documentElement;
-	root.setAttribute("data-theme", theme);
-	localStorage.setItem("theme", theme);
-};
-
-const toggleTheme = () => {
-	const currentTheme = document.documentElement.getAttribute("data-theme") || LIGHT_THEME;
-	const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
-	updateTheme(newTheme);
-	updateThemeButtons();
-};
-
-const updateThemeButtons = () => {
-	const isDarkTheme = document.documentElement.getAttribute("data-theme") === DARK_THEME;
-	sun_btn.classList.toggle("hidden", !isDarkTheme);
-	moon_btn.classList.toggle("hidden", isDarkTheme);
-};
-
-const showInfoClickHandler = (element) => {
-	overlay.style.visibility = "visible";
-	overlay.style.opacity = "1";
-	element.classList.remove("hidden");
-	element.classList.remove("scale-out-center");
-	element.classList.add("scale-in-center");
-};
-
-const closeInfoClickHandler = (element) => {
-	element.classList.add("scale-out-center");
-
-	setTimeout(() => {
-		overlay.style.opacity = "0";
-		overlay.style.visibility = "hidden";
-		element.classList.add("hidden");
-		element.classList.remove("scale-in-center");
-	}, 600);
 };
