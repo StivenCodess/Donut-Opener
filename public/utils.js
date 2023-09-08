@@ -15,3 +15,9 @@ export const deleteBackdrop = () => {
 	backdrop_container.removeChild(document.querySelector(".box-blur-left")),
 		backdrop_container.removeChild(document.querySelector(".box-blur-right"));
 };
+
+export const backClickHandler = (btn, image, roll_container) => {
+	btn.classList.add("hidden");
+	image.style.display = "block";
+	roll_container.style.display = "none";
+};

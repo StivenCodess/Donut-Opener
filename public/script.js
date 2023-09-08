@@ -1,8 +1,9 @@
 import { initializeTheme, updateThemeButtons, toggleTheme } from "./theme.js";
 import { showInfoClickHandler, closeInfoClickHandler } from "./modal.js";
-import { showBoxBlur, deleteBackdrop } from "./utils.js";
+import { showBoxBlur, deleteBackdrop, backClickHandler } from "./utils.js";
 
 const open_btn = document.getElementById("open-btn");
+const back_btn = document.getElementById("back-btn");
 
 const modal_info = document.getElementById("modal-info");
 const modal_donuts = document.getElementById("modal-info-donut");
@@ -21,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateThemeButtons();
 });
 
+window.addEventListener("resize", () => {
+	updatePosition();
+});
+
 const loadImagesFromServer = async () => {
 	try {
 		const response = await fetch("https://donut-opener.vercel.app/api/images");
@@ -35,7 +40,6 @@ const loadImagesFromServer = async () => {
 
 const setElements = async () => {
 	try {
-		console.log("Obteniendo imagenes");
 		const imagesData = await loadImagesFromServer();
 		loadImagesIntoRoll(imagesData);
 	} catch (error) {
@@ -61,6 +65,9 @@ document.addEventListener("click", (event) => {
 			closeInfoClickHandler(modal_donuts);
 		} else if (action === "changeTheme") {
 			toggleTheme();
+		} else if (action === "back") {
+			resetElement();
+			backClickHandler(back_btn, imageBox, roll_container);
 		}
 	}
 });
@@ -138,10 +145,6 @@ const loadImagesIntoRoll = (imagesData) => {
 	WIN_IMG = roll_wrapper.children.length / 2;
 };
 
-window.addEventListener("resize", () => {
-	updatePosition();
-});
-
 const open_btnClickHandler = () => {
 	open_btn.disabled = true;
 	imageBox.style.display = "none";
@@ -201,6 +204,7 @@ const open_btnClickHandler = () => {
 
 const showWinnerDonut = () => {
 	if (document.querySelector(".winner-container")) return;
+	back_btn.classList.remove("hidden");
 
 	const winnerElement = roll_wrapper.children.item(WIN_IMG);
 

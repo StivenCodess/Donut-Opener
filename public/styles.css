@@ -435,3 +435,25 @@ body {
 .hidden {
 	display: none;
 }
+
+#back-btn {
+	padding: 15px;
+	margin-top: 30px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	user-select: none;
+	color: white;
+	background-color: var(--win-box-color);
+	font-family: "Roboto", sans-serif;
+	transition: scale 1s ease;
+}
+
+#back-btn:hover {
+	scale: 1.2;
+}
+
+.btn-container {
+	display: flex;
+	gap: 10px;
+}

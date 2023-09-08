@@ -111,14 +111,20 @@
 			<button id="close-modal-info-donut" data-action="close-donuts">❌</button>
 		</div>
 
-		<img class="box-image" src="./assets/donut_box.png" alt="box" />
+		<img class="box-image scale-in-center" src="./assets/donut_box.png" alt="box" />
 		<div class="backdrop">
 			<div id="roll-container" class="roll-container" style="display: none">
 				<div id="roll-wrapper" class="roll-wrapper"></div>
 			</div>
 		</div>
 
-		<button id="open-btn" data-action="open">Abrir</button>
+		<div class="btn-container">
+			<button id="open-btn" data-action="open">Abrir</button>
+			<button id="back-btn" class="scale-in-center hidden" data-action="back">
+				<img src="assets/back.png" alt="back icon" data-action="back" />
+			</button>
+		</div>
+
 		<script type="module" src="script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
 	</body>
