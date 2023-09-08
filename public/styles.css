@@ -342,6 +342,15 @@ body {
 	padding: 0;
 }
 
+@media screen and (min-width: 767px) {
+	.img-container {
+		display: flex;
+		max-width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
 .donut-item h3 {
 	margin: 0;
 	text-transform: uppercase;
