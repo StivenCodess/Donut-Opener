@@ -10,3 +10,8 @@ export const showBoxBlur = () => {
 	backdrop_container.appendChild(divBlurLeft);
 	backdrop_container.appendChild(divBlurRight);
 };
+
+export const deleteBackdrop = () => {
+	backdrop_container.removeChild(document.querySelector(".box-blur-left")),
+		backdrop_container.removeChild(document.querySelector(".box-blur-right"));
+};

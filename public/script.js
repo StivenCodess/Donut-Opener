@@ -1,6 +1,6 @@
 import { initializeTheme, updateThemeButtons, toggleTheme } from "./theme.js";
 import { showInfoClickHandler, closeInfoClickHandler } from "./modal.js";
-import { showBoxBlur } from "./utils.js";
+import { showBoxBlur, deleteBackdrop } from "./utils.js";
 
 const open_btn = document.getElementById("open-btn");
 
@@ -35,9 +35,12 @@ const loadImagesFromServer = async () => {
 
 const setElements = async () => {
 	try {
+		console.log("Obteniendo imagenes");
 		const imagesData = await loadImagesFromServer();
 		loadImagesIntoRoll(imagesData);
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 document.addEventListener("click", (event) => {
@@ -94,8 +97,7 @@ const resetElement = () => {
 		document.querySelector(".box-blur-left") &&
 		document.querySelector(".box-blur-right")
 	) {
-		backdrop_container.removeChild(document.querySelector(".box-blur-left")),
-			backdrop_container.removeChild(document.querySelector(".box-blur-right"));
+		deleteBackdrop();
 	}
 
 	roll_wrapper.style.transition = "none";
