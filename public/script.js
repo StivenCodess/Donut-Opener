@@ -88,6 +88,9 @@ const getRandomImage = (IMAGES) => {
 };
 
 const resetElement = () => {
+	roll_wrapper.style.transition = "none";
+	roll_wrapper.style.left = "0px";
+
 	while (roll_wrapper.firstChild) {
 		roll_wrapper.removeChild(roll_wrapper.firstChild);
 	}
@@ -106,9 +109,6 @@ const resetElement = () => {
 	) {
 		deleteBackdrop();
 	}
-
-	roll_wrapper.style.transition = "none";
-	roll_wrapper.style.left = "0px";
 };
 
 const updatePosition = () => {
@@ -140,7 +140,7 @@ const loadImagesIntoRoll = (imagesData) => {
 	setTimeout(() => {
 		roll_wrapper.style.transition = "left 6s cubic-bezier(0.19, 1, 0.22, 1) 0s";
 		updatePosition();
-	}, 0);
+	}, 30);
 
 	WIN_IMG = roll_wrapper.children.length / 2;
 };
