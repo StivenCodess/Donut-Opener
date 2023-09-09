@@ -34,6 +34,10 @@ Este proyecto ha sido desarrollado utilizando una variedad de tecnologías:
 
 ## Contribuciones y Retroalimentación 🙌
 
-¡Estamos entusiasmados de que quieras ser parte de este proyecto! Siéntete libre de explorar el código, buscar errores, proponer mejoras de optimización o legibilidad, y reportar cualquier bug que encuentres. Cualquier contribución será muy apreciada y aquellos que ayuden a mejorar el proyecto serán mencionados en este README como muestra de agradecimiento.
+¡Estamos entusiasmados de que quieras ser parte de este proyecto! Agradecemos a todas las personas que han contribuido, proporcionado consejos valiosos o ayudado de alguna manera:
+
+- [PabloESanabriaQ](https://github.com/PabloESanabriaQ) - Contribuyó con [Estilos, Buenas practicas].
+
+Siéntete libre de explorar el código, buscar errores, proponer mejoras de optimización o legibilidad, y reportar cualquier bug que encuentres. Cualquier contribución será muy apreciada y aquellos que ayuden a mejorar el proyecto serán mencionados en este README como muestra de agradecimiento.
 
 ¡Disfruta de la Ruleta de Donas y que la suerte esté de tu lado! 🍀
