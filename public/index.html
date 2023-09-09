@@ -1,178 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donut Case Opener</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <figure class="theme-container">
-      <img
-        id="sun"
-        src="./assets/sol.gif"
-        alt="sun gif"
-        data-action="changeTheme"
-      />
-      <img
-        id="moon"
-        src="./assets/luna.gif"
-        alt="moon gif"
-        width="34px"
-        height="34px"
-        data-action="changeTheme"
-      />
-    </figure>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Donut Case Opener</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<figure class="theme-container">
+			<img id="sun" src="./assets/sol.gif" alt="sun gif" data-action="changeTheme" />
+			<img
+				id="moon"
+				src="./assets/luna.gif"
+				alt="moon gif"
+				width="34px"
+				height="34px"
+				data-action="changeTheme"
+			/>
+		</figure>
 
-    <svg
-      id="info-btn"
-      class="bi bi-info-circle-fill info-btn"
-      data-action="show-info"
-      fill="currentcolor"
-      height="50"
-      viewBox="0 0 16 16"
-      width="50"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        data-action="show-info"
-        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
-      />
-    </svg>
+		<svg
+			id="info-btn"
+			class="bi bi-info-circle-fill info-btn"
+			data-action="show-info"
+			fill="currentcolor"
+			height="50"
+			viewBox="0 0 16 16"
+			width="50"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				data-action="show-info"
+				d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+			/>
+		</svg>
 
-    <div class="overlay"></div>
-    <img
-      src="./assets/donut.svg"
-      alt="donut icon"
-      id="donut-btn"
-      data-action="show-donuts"
-      width="45"
-      class="donut-btn"
-    />
+		<div class="overlay"></div>
+		<img
+			src="./assets/donut.svg"
+			alt="donut icon"
+			id="donut-btn"
+			data-action="show-donuts"
+			width="45"
+			class="donut-btn"
+		/>
 
-    <div id="modal-info" class="modal-info hidden">
-      <p>
-        ¡Hola! Si aprietas sobre la 🍩 te mostrará la rareza de cada una de las
-        mismas. Deberás sacar la más rara para obtener un descuento del 10% en
-        tu compra. Suerte.✨
-      </p>
-      <button id="close-modal-info" data-action="close-info">❌</button>
-    </div>
+		<div id="modal-info" class="modal-info hidden">
+			<p>
+				¡Hola! Si aprietas sobre la 🍩 te mostrará la rareza de cada una de las mismas.
+				Deberás sacar la más rara para obtener un descuento del 10% en tu compra.
+				Suerte.✨
+			</p>
+			<button id="close-modal-info" data-action="close-info">❌</button>
+		</div>
 
-    <div id="modal-info-donut" class="modal-info-donut hidden">
-      <ul class="img-container">
-        <li class="donut-item">
-          <img src="./assets/donuts_image/6.svg" alt="" width="200" />
-          <h3>Chispita</h3>
-          <span class="epico">Epica</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/7.svg" alt="" width="200" />
-          <h3>Chocolita</h3>
-          <span class="rara">Rara</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/3.svg" alt="" width="200" />
-          <h3>Rayitas</h3>
-          <span class="infrecuente">Infrecuente</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/9.svg" alt="" width="200" />
-          <h3>Remolinitos</h3>
-          <span class="infrecuente">Infrecuente</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/1.svg" alt="" width="200" />
-          <h3>Estrellitas</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/10.svg" alt="" width="200" />
-          <h3>Corazoncitos</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/5.svg" alt="" width="200" />
-          <h3>Glaceadita</h3>
-          <span class="poco-comun">Poco Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/2.svg" alt="" width="200" />
-          <h3>Tostadita</h3>
-          <span class="comun">Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/4.svg" alt="" width="200" />
-          <h3>Grajeitas Azul</h3>
-          <span class="comun">Comun</span>
-        </li>
-        <li class="donut-item">
-          <img src="./assets/donuts_image/8.svg" alt="" width="200" />
-          <h3>Celestita</h3>
-          <span class="comun">Comun</span>
-        </li>
-      </ul>
+		<div id="modal-info-donut" class="modal-info-donut hidden">
+			<ul class="img-container">
+				<li class="donut-item">
+					<img src="./assets/donuts_image/6.svg" alt="" width="200" />
+					<h3>Chispita</h3>
+					<span class="epico">Epica</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/7.svg" alt="" width="200" />
+					<h3>Chocolita</h3>
+					<span class="rara">Rara</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/3.svg" alt="" width="200" />
+					<h3>Rayitas</h3>
+					<span class="infrecuente">Infrecuente</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/9.svg" alt="" width="200" />
+					<h3>Remolinitos</h3>
+					<span class="infrecuente">Infrecuente</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/1.svg" alt="" width="200" />
+					<h3>Estrellitas</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/10.svg" alt="" width="200" />
+					<h3>Corazoncitos</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/5.svg" alt="" width="200" />
+					<h3>Glaceadita</h3>
+					<span class="poco-comun">Poco Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/2.svg" alt="" width="200" />
+					<h3>Tostadita</h3>
+					<span class="comun">Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/4.svg" alt="" width="200" />
+					<h3>Grajeitas Azul</h3>
+					<span class="comun">Comun</span>
+				</li>
+				<li class="donut-item">
+					<img src="./assets/donuts_image/8.svg" alt="" width="200" />
+					<h3>Celestita</h3>
+					<span class="comun">Comun</span>
+				</li>
+			</ul>
 
-      <button id="close-modal-info-donut" data-action="close-donuts">❌</button>
-    </div>
+			<button id="close-modal-info-donut" data-action="close-donuts">❌</button>
+		</div>
 
-    <img
-      class="box-image scale-in-center"
-      src="./assets/donut_box.png"
-      alt="box"
-    />
-    <div class="backdrop">
-      <div id="roll-container" class="roll-container" style="display: none">
-        <div id="roll-wrapper" class="roll-wrapper"></div>
-      </div>
-    </div>
+		<img class="box-image scale-in-center" src="./assets/donut_box.png" alt="box" />
+		<div class="backdrop">
+			<div id="roll-container" class="roll-container" style="display: none">
+				<div id="roll-wrapper" class="roll-wrapper"></div>
+			</div>
+		</div>
 
-    <div class="btn-container">
-      <button id="open-btn" data-action="open">Abrir</button>
-      <button id="back-btn" class="scale-in-center hidden" data-action="back">
-        <img src="assets/back.png" alt="back icon" data-action="back" />
-      </button>
-    </div>
+		<div class="btn-container">
+			<button id="open-btn" data-action="open">Abrir</button>
+			<button id="back-btn" class="scale-in-center hidden" data-action="back">
+				<img src="assets/back.png" alt="back icon" data-action="back" />
+			</button>
+		</div>
 
-    <div id="loading">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        version="1.1"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:svgjs="http://svgjs.com/svgjs"
-        width="50"
-        height="50"
-        x="0"
-        y="0"
-        viewBox="0 0 56 56"
-        style="enable-background: new 0 0 512 512"
-        xml:space="preserve"
-        class=""
-      >
-        <g>
-          <path
-            d="M48 31v-2.5a2.5 2.5 0 1 0-5 0V46a5 5 0 0 1-10 0V32.89a7 7 0 0 1-10 0V38a5 5 0 0 1-10 0v-9.5a2.5 2.5 0 1 0-5 0V31a5 5 0 0 1-6.95 4.59 28 28 0 0 0 53.9 0A5 5 0 0 1 48 31z"
-            fill="currentcolor"
-            data-original="#000000"
-            class="donut-loading"
-          ></path>
-          <path
-            d="M28 0A28 28 0 0 0 .35 32.37 3 3 0 0 0 6 31v-2.5a4.5 4.5 0 1 1 9 0V38a3 3 0 0 0 6 0V28a7 7 0 0 1 14 0v18a3 3 0 0 0 6 0V28.5a4.5 4.5 0 1 1 9 0V31a3 3 0 0 0 5.65 1.37A28 28 0 0 0 28 0zM5.71 23.71a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 0 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm2.58-12.42 1-1a1.004 1.004 0 0 1 1.42 1.42l-1 1a1.004 1.004 0 1 1-1.42-1.42zm3.42 6.42C10.65 18.77 10.52 19 10 19a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm4.58-8.42a1 1 0 0 1 1.42 0l1 1A1 1 0 0 1 18 12c-.53 0-.67-.26-1.71-1.29a1 1 0 0 1 0-1.42zm2.42 14.42a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm3-6C20.65 18.77 20.52 19 20 19a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm1-12C21.65 6.77 21.52 7 21 7a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm4.09-2.42 1-1a1 1 0 1 1 1.41 1.42l-1 1a1 1 0 0 1-1.41-1.42zm1.91 14.42a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm1-7C28.65 11.77 28.52 12 28 12a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm3.58-6.42a1 1 0 0 1 1.42 0l1 1A1 1 0 0 1 35 7c-.53 0-.67-.26-1.71-1.29a1 1 0 0 1 0-1.42zM36 19c-.53 0-.67-.26-1.71-1.29a1.004 1.004 0 1 1 1.42-1.42l1 1A1 1 0 0 1 36 19zm3.71 3.71C38.65 23.77 38.52 24 38 24a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm0-12C38.65 11.77 38.52 12 38 12a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm7 8a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm1-6a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 0 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm5 10C51.65 23.77 51.52 24 51 24a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42z"
-            fill="currentcolor"
-            data-original="#000000"
-            class="donut-loading"
-          ></path>
-        </g>
-      </svg>
-    </div>
+		<div id="loading">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				version="1.1"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:svgjs="http://svgjs.com/svgjs"
+				width="80"
+				height="80"
+				x="0"
+				y="0"
+				viewBox="0 0 56 56"
+				style="enable-background: new 0 0 512 512"
+				xml:space="preserve"
+				class=""
+			>
+				<g>
+					<path
+						d="M48 31v-2.5a2.5 2.5 0 1 0-5 0V46a5 5 0 0 1-10 0V32.89a7 7 0 0 1-10 0V38a5 5 0 0 1-10 0v-9.5a2.5 2.5 0 1 0-5 0V31a5 5 0 0 1-6.95 4.59 28 28 0 0 0 53.9 0A5 5 0 0 1 48 31z"
+						fill="currentcolor"
+						data-original="#000000"
+						class="donut-loading"
+					></path>
+					<path
+						d="M28 0A28 28 0 0 0 .35 32.37 3 3 0 0 0 6 31v-2.5a4.5 4.5 0 1 1 9 0V38a3 3 0 0 0 6 0V28a7 7 0 0 1 14 0v18a3 3 0 0 0 6 0V28.5a4.5 4.5 0 1 1 9 0V31a3 3 0 0 0 5.65 1.37A28 28 0 0 0 28 0zM5.71 23.71a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 0 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm2.58-12.42 1-1a1.004 1.004 0 0 1 1.42 1.42l-1 1a1.004 1.004 0 1 1-1.42-1.42zm3.42 6.42C10.65 18.77 10.52 19 10 19a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm4.58-8.42a1 1 0 0 1 1.42 0l1 1A1 1 0 0 1 18 12c-.53 0-.67-.26-1.71-1.29a1 1 0 0 1 0-1.42zm2.42 14.42a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm3-6C20.65 18.77 20.52 19 20 19a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm1-12C21.65 6.77 21.52 7 21 7a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm4.09-2.42 1-1a1 1 0 1 1 1.41 1.42l-1 1a1 1 0 0 1-1.41-1.42zm1.91 14.42a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm1-7C28.65 11.77 28.52 12 28 12a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 1 1 1.42 1.42zm3.58-6.42a1 1 0 0 1 1.42 0l1 1A1 1 0 0 1 35 7c-.53 0-.67-.26-1.71-1.29a1 1 0 0 1 0-1.42zM36 19c-.53 0-.67-.26-1.71-1.29a1.004 1.004 0 1 1 1.42-1.42l1 1A1 1 0 0 1 36 19zm3.71 3.71C38.65 23.77 38.52 24 38 24a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm0-12C38.65 11.77 38.52 12 38 12a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42zm7 8a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 1 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm1-6a1 1 0 0 1-1.42 0l-1-1a1.004 1.004 0 0 1 1.42-1.42l1 1a1 1 0 0 1 0 1.42zm5 10C51.65 23.77 51.52 24 51 24a1 1 0 0 1-.71-1.71l1-1a1.004 1.004 0 0 1 1.42 1.42z"
+						fill="currentcolor"
+						data-original="#000000"
+						class="donut-loading"
+					></path>
+				</g>
+			</svg>
+		</div>
 
-    <footer class="footer">
-      <h3 class="credits">
-        Desarrollado con ❤️ por
-        <a href="https://github.com/StivenCodess/Donut-Opener">StivenCodess</a>
-      </h3>
-    </footer>
-    <script type="module" src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
-  </body>
+		<footer class="footer">
+			<h3 class="credits">
+				Desarrollado con ❤️ por
+				<a target="_blank" href="https://github.com/StivenCodess/Donut-Opener"
+					>StivenCodess</a
+				>
+			</h3>
+		</footer>
+		<script type="module" src="script.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+	</body>
 </html>
