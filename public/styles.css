@@ -500,3 +500,27 @@ a {
   font-size: 14px;
   color: var(--text-color);
 }
+
+#loading {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 375px;
+  animation: rotate-pulse-loader 1.5s linear infinite;
+}
+
+@keyframes rotate-pulse-loader {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.8);
+  }
+}
+
+.donut-loading {
+  fill: var(--text-color);
+}
